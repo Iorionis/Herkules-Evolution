@@ -1,0 +1,36 @@
+name: 🚀 Herkules Daily Evolution
+
+on:
+  schedule:
+    - cron: '0 14 * * *'
+  workflow_dispatch:
+
+jobs:
+  herkules:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+      
+      - name: 🌟 Herkules Learn & Grow
+        run: |
+          python Herkules_Master.py
+          python Herkules_RealTime.py
+          python Herkules_Vision3D.py
+          echo "✅ Herkules evolved!"
+      
+      - name: 📊 Log Evolution
+        run: |
+          echo "Herkules evolved at $(date)" >> evolution.log
+      
+      - name: 📤 Commit & Push
+        run: |
+          git config user.email "herkules@ai"
+          git config user.name "Herkules"
+          git add evolution.log
+          git commit -m "🚀 Herkules Evolution $(date +%Y-%m-%d)" || true
+          git push
