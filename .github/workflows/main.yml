@@ -1,8 +1,8 @@
-name: 🚀 Herkules Daily Evolution
+name: Herkules Daily Evolution
 
 on:
   schedule:
-    - cron: '0 14 * * *'
+    - cron: '0 */6 * * *'  # Co 6 godzin
   workflow_dispatch:
 
 jobs:
@@ -11,26 +11,16 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       
-      - name: Setup Python
+      - name: Set up Python
         uses: actions/setup-python@v4
         with:
           python-version: '3.11'
       
-      - name: 🌟 Herkules Learn & Grow
+      - name: Install dependencies
         run: |
-          python Herkules_Master.py
-          python Herkules_RealTime.py
-          python Herkules_Vision3D.py
-          echo "✅ Herkules evolved!"
+          pip install flask requests
       
-      - name: 📊 Log Evolution
+      - name: Run Herkules
         run: |
-          echo "Herkules evolved at $(date)" >> evolution.log
-      
-      - name: 📤 Commit & Push
-        run: |
-          git config user.email "herkules@ai"
-          git config user.name "Herkules"
-          git add evolution.log
-          git commit -m "🚀 Herkules Evolution $(date +%Y-%m-%d)" || true
-          git push
+          echo "✅ Herkules Daily Pulse Active!"
+          python -c "print('Herkules is ALIVE!')"
