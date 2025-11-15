@@ -1,5 +1,3 @@
 @echo off
-cd C:\Users\Kamil\Desktop\Herkules-Evolution
-echo === HERKULES AUTOSTARTUJE ===
-python HerkulesCore.py
+python "C:\Users\Kamil\Desktop\Herkules-Evolution\Mind2_Growth\Herkules_Master.py"
 pause
